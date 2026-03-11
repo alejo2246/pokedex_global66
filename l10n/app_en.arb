@@ -1,0 +1,30 @@
+{
+  "@@locale": "en",
+  "appTitle": "Pokémon Favorites",
+  "@appTitle": { "description": "The app title" },
+
+  "pokemonListTitle": "Pokémon List",
+  "@pokemonListTitle": {},
+
+  "favoritesTitle": "My Favorites",
+  "@favoritesTitle": {},
+
+  "noFavoritesYet": "No favorites yet.\nStart adding some!",
+  "@noFavoritesYet": {},
+
+  "pokemonType": "{type}",
+  "@pokemonType": {
+    "placeholders": {
+      "type": { "type": "String" }
+    }
+  },
+
+  "statsLabel": "Stats",
+  "@statsLabel": {},
+
+  "errorLoadingData": "Could not load data. Please try again.",
+  "@errorLoadingData": {},
+
+  "retry": "Retry",
+  "@retry": {}
+}

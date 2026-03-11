@@ -1,0 +1,11 @@
+{
+  "@@locale": "es",
+  "appTitle": "Pokémon Favoritos",
+  "pokemonListTitle": "Lista de Pokémon",
+  "favoritesTitle": "Mis Favoritos",
+  "noFavoritesYet": "Aún no hay favoritos.\n¡Empieza a agregar!",
+  "pokemonType": "{type}",
+  "statsLabel": "Estadísticas",
+  "errorLoadingData": "No se pudieron cargar los datos. Intenta de nuevo.",
+  "retry": "Reintentar"
+}
