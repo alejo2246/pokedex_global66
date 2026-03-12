@@ -205,7 +205,6 @@ class _DotsLoaderState extends State<_DotsLoader>
   }
 
   double _bounce(double t) {
-    // sine wave: 0 → 1 → 0 in the first half, flat in the second half
     if (t < 0.5) return (1 - (2 * t - 1) * (2 * t - 1));
     return 0.0;
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/design_system/tokens/app_radius.dart';
 import 'package:pokedex/design_system/tokens/app_typography.dart';
+import 'package:pokedex/l10n/l10n.dart';
 
 import '../../../../core/router/app_router.dart';
 import '../../../../design_system/tokens/app_colors.dart';
@@ -82,35 +83,34 @@ class _AppBottomNavBar extends StatelessWidget {
   }
 }
 
-// ─── Extension — mapea enum a BottomNavigationBarItem ────────────────────────
 
 extension _BottomNavTabX on BottomNavTab {
   BottomNavigationBarItem toNavItem(BuildContext context) {
-    // Cuando integres l10n: context.l10n.homeTab, etc.
+
     switch (this) {
       case BottomNavTab.pokedex:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          activeIcon: Icon(Icons.home),
-          label: 'Pokedex',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.home),
+          activeIcon: const Icon(Icons.home),
+          label: context.l10n.navPokedex,
         );
       case BottomNavTab.regions:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.language),
-          activeIcon: Icon(Icons.language),
-          label: 'Region',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.language),
+          activeIcon: const Icon(Icons.language),
+          label: context.l10n.navRegions,
         );
       case BottomNavTab.favorites:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          activeIcon: Icon(Icons.favorite),
-          label: 'Favoritos',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.favorite),
+          activeIcon: const Icon(Icons.favorite),
+          label: context.l10n.navFavorites,
         );
       case BottomNavTab.profile:
-        return const BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          activeIcon: Icon(Icons.person),
-          label: 'Perfil',
+        return BottomNavigationBarItem(
+          icon: const Icon(Icons.person),
+          activeIcon: const Icon(Icons.person),
+          label: context.l10n.navProfile,
         );
     }
   }

@@ -5,6 +5,7 @@ import 'package:pokedex/design_system/components/atoms/app_button.dart';
 import 'package:pokedex/design_system/components/atoms/app_text_field.dart';
 import 'package:pokedex/design_system/components/molecules/app_error_state.dart';
 import 'package:pokedex/design_system/tokens/app_radius.dart';
+import 'package:pokedex/l10n/l10n.dart';
 
 import '../../../../core/constants/pokemon_type.dart';
 import '../../../../core/router/route_names.dart';
@@ -92,7 +93,7 @@ class _PokedexPageState extends ConsumerState<PokedexPage> {
         title: AppTextField(
           controller: _searchController,
           iconLeft: 'search.svg',
-          hint: 'Procurar Pokémon...',
+          hint: context.l10n.searchHint,
           onChanged: (q) =>
               ref.read(pokedexViewModelProvider.notifier).setSearchQuery(q),
         ),
@@ -142,17 +143,17 @@ class _PokedexPageState extends ConsumerState<PokedexPage> {
       body: switch (state) {
         AsyncLoading() => const PokedexSkeletonList(),
         AsyncError(:final error) => AppErrorState(
-          title: 'Algo salio mal...',
+          title: context.l10n.errorTitle,
           subtitle: error.toString(),
           onRetry: () => ref.read(pokedexViewModelProvider.notifier).refresh(),
         ),
         AsyncData(:final value) when value.filteredPokemons.isEmpty =>
           AppErrorState(
-            title: 'No hay Pokémons',
+            title: context.l10n.noPokemons,
             subtitle: value.hasActiveFilters
-                ? 'Ningún Pokémon coincide con los filtros aplicados.'
-                : 'La Pokédex está vacía por el momento.',
-            retryLabel: 'Limpiar filtros',
+                ? context.l10n.noPokemonsWithFilters
+                : context.l10n.noPokemonsEmpty,
+            retryLabel: context.l10n.clearFilters,
             onRetry: value.hasActiveFilters ? _clearFilterAndSearch : null,
           ),
         AsyncData(:final value) => RefreshIndicator(
@@ -174,30 +175,20 @@ class _PokedexPageState extends ConsumerState<PokedexPage> {
               if (hasActiveFiltersOrSearch && index == 0) {
                 return Row(
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'Se han encontrado ',
-                        style: AppTypography.fontStyle3Regular.copyWith(
-                          color: AppColors.textDisabled,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: '${value.filteredPokemons.length} resultados',
-                            style: AppTypography.fontStyle3Bold.copyWith(
-                              color: AppColors.textDisabled,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      context.l10n.resultsFound(value.filteredPokemons.length),
+                      style: AppTypography.fontStyle3Regular.copyWith(
+                        color: AppColors.textDisabled,
                       ),
                     ),
                     SizedBox(width: AppSpacing.xs),
                     InkWell(
                       onTap: _clearFilterAndSearch,
                       child: Text(
-                        'Borrar filtro',
+                        context.l10n.clearFilter,
                         style: AppTypography.fontStyle3Medium.copyWith(
                           color: AppColors.textLink,
-                          decoration: .underline,
+                          decoration: TextDecoration.underline,
                           decorationColor: AppColors.textLink,
                         ),
                       ),
@@ -287,7 +278,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
 
               Center(
                 child: Text(
-                  'Filtra por tus preferencias',
+                  context.l10n.filterSheetTitle,
                   style: AppTypography.fontStyle6Semibold,
                   textAlign: TextAlign.center,
                 ),
@@ -297,7 +288,7 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
 
               Flexible(
                 child: AppMultiSelect<PokemonType>(
-                  title: 'Tipo',
+                  title: context.l10n.filterTypeLabel,
                   items: PokemonType.values,
                   selected: _pendingTypes,
                   labelBuilder: (type) => type.displayName,
@@ -306,10 +297,10 @@ class _FilterBottomSheetState extends ConsumerState<_FilterBottomSheet> {
               ),
 
               const SizedBox(height: AppSpacing.lg),
-              AppButton(text: 'Aplicar', onPressed: _apply),
+              AppButton(text: context.l10n.apply, onPressed: _apply),
               const SizedBox(height: AppSpacing.md),
               AppButton(
-                text: 'Cancelar',
+                text: context.l10n.cancel,
                 onPressed: () => Navigator.pop(context),
                 type: AppButtonType.secondary,
               ),

@@ -7,6 +7,7 @@ import 'package:pokedex/core/constants/pokemon_type.dart';
 import 'package:pokedex/core/utils/string_helper.dart';
 import 'package:pokedex/design_system/components/molecules/app_error_state.dart';
 import 'package:pokedex/design_system/theme/pokemon_type_theme.dart';
+import 'package:pokedex/l10n/l10n.dart';
 import 'package:pokedex/design_system/tokens/app_radius.dart';
 
 import '../../../../design_system/components/atoms/favorite_icon.dart';
@@ -104,7 +105,7 @@ class PokemonDetailPage extends ConsumerWidget {
             ),
             AsyncError(:final error) => SliverFillRemaining(
               child: AppErrorState(
-                title: 'Algo salio mal...',
+                title: context.l10n.errorTitle,
                 subtitle: error.toString(),
                 onRetry: () =>
                     ref.invalidate(pokemonDetailViewModelProvider(id)),
@@ -228,11 +229,11 @@ class _DetailSliverContent extends StatelessWidget {
           const SizedBox(height: AppSpacing.lg),
           _InfoGrid(detail: detail),
           const SizedBox(height: AppSpacing.md),
-          Text('Debilidades', style: AppTypography.fontStyle5Medium),
+          Text(context.l10n.weaknesses, style: AppTypography.fontStyle5Medium),
           const SizedBox(height: AppSpacing.sm),
           detail.weaknesses.isEmpty
               ? Text(
-                  'Sin debilidades conocidas',
+                  context.l10n.noWeaknesses,
                   style: AppTypography.fontStyle3Regular.copyWith(
                     color: AppColors.textDisabled,
                   ),
@@ -284,23 +285,23 @@ class _InfoGrid extends StatelessWidget {
           children: [
             _InfoCell(
               icon: 'weight.svg',
-              label: 'Peso',
+              label: context.l10n.weight,
               value: '${detail.weightKg.toStringAsFixed(1)} kg',
             ),
             _InfoCell(
               icon: 'height.svg',
-              label: 'Altura',
+              label: context.l10n.height,
               value: '${detail.heightM.toStringAsFixed(1)} m',
             ),
 
             _InfoCell(
               icon: 'category.svg',
-              label: 'Categoría',
+              label: context.l10n.category,
               value: detail.category,
             ),
             _InfoCell(
               icon: 'pokeball.svg',
-              label: 'Habilidad',
+              label: context.l10n.ability,
               value: StringHelper.capitalize(detail.abilities.firstOrNull?.name ?? '—'),
             ),
           ],
@@ -387,7 +388,7 @@ class _GenderBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'GENERO',
+          context.l10n.gender.toUpperCase(),
           style: AppTypography.fontStyle2Medium.copyWith(
             color: AppColors.textSecondary,
             letterSpacing: 0.8,
@@ -395,12 +396,12 @@ class _GenderBar extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: AppSpacing.sm),
-        if (genderRate == -1) _buildGenderlessBar() else _buildRatioBar(),
+        if (genderRate == -1) _buildGenderlessBar(context) else _buildRatioBar(),
       ],
     );
   }
 
-  Widget _buildGenderlessBar() {
+  Widget _buildGenderlessBar(BuildContext context) {
     return Column(
       children: [
         ClipRRect(
@@ -412,7 +413,7 @@ class _GenderBar extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.xs),
         Text(
-          'Sin género',
+          context.l10n.genderless,
           style: AppTypography.fontStyle2Medium.copyWith(
             color: AppColors.textDisabled,
           ),

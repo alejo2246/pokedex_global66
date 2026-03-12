@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/design_system/components/molecules/app_error_state.dart';
+import 'package:pokedex/l10n/l10n.dart';
 
 class RegionsPage extends StatelessWidget {
   const RegionsPage({super.key});
@@ -7,9 +8,8 @@ class RegionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppErrorState(
-      title: '¡Muy pronto disponible!',
-      subtitle:
-          'Estamos trabajando para traerte esta sección. Vuelve más adelante para descubrir todas las novedades.',
+      title: context.l10n.comingSoon,
+      subtitle: context.l10n.comingSoonSubtitle,
       image: 'jigglypuff_image.png',
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/design_system/components/organisms/pokedex_skeleton_list.dart';
+import 'package:pokedex/l10n/l10n.dart';
 
 import '../../../../core/router/route_names.dart';
 import '../../../../design_system/components/molecules/app_error_state.dart';
@@ -24,7 +25,7 @@ class FavoritesPage extends ConsumerWidget {
         backgroundColor: AppColors.surface,
         elevation: 0,
         title: Text(
-          'Favoritos',
+          context.l10n.favoritesTitle,
           style: AppTypography.fontStyle4Semibold.copyWith(
             color: AppColors.textPrimary,
           ),
@@ -33,13 +34,13 @@ class FavoritesPage extends ConsumerWidget {
       body: switch (state) {
         AsyncLoading() => PokedexSkeletonList(),
         AsyncError(:final error) => AppErrorState(
-          title: 'Algo salio mal...',
+          title: context.l10n.errorTitle,
           subtitle: error.toString(),
           image: 'jigglypuff_image.png',
         ),
         AsyncData(:final value) when value.favorites.isEmpty => AppErrorState(
-          title: 'Sin favoritos',
-          subtitle: 'Agrega Pokémon a tus favoritos desde la Pokédex.',
+          title: context.l10n.noFavorites,
+          subtitle: context.l10n.noFavoritesSubtitle,
           image: 'jigglypuff_image.png',
         ),
         AsyncData(:final value) => ListView.separated(

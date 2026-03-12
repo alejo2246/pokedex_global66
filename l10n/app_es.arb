@@ -1,11 +1,51 @@
 {
   "@@locale": "es",
-  "appTitle": "Pokémon Favoritos",
-  "pokemonListTitle": "Lista de Pokémon",
-  "favoritesTitle": "Mis Favoritos",
-  "noFavoritesYet": "Aún no hay favoritos.\n¡Empieza a agregar!",
-  "pokemonType": "{type}",
-  "statsLabel": "Estadísticas",
-  "errorLoadingData": "No se pudieron cargar los datos. Intenta de nuevo.",
-  "retry": "Reintentar"
+
+  "appTitle": "Pokédex",
+  "navPokedex": "Pokédex",
+  "navRegions": "Región",
+  "navFavorites": "Favoritos",
+  "navProfile": "Perfil",
+
+  "searchHint": "Procurar Pokémon...",
+
+  "errorTitle": "Algo salio mal...",
+  "retry": "Reintentar",
+
+  "noPokemons": "No hay Pokémons",
+  "noPokemonsWithFilters": "Ningún Pokémon coincide con los filtros aplicados.",
+  "noPokemonsEmpty": "La Pokédex está vacía por el momento.",
+  "clearFilters": "Limpiar filtros",
+
+  "resultsFound": "Se han encontrado {count} resultados",
+  "clearFilter": "Borrar filtro",
+
+  "filterSheetTitle": "Filtra por tus preferencias",
+  "filterTypeLabel": "Tipo",
+  "apply": "Aplicar",
+  "cancel": "Cancelar",
+
+  "weaknesses": "Debilidades",
+  "noWeaknesses": "Sin debilidades conocidas",
+
+  "weight": "Peso",
+  "height": "Altura",
+  "category": "Categoría",
+  "ability": "Habilidad",
+  "gender": "Genero",
+  "genderless": "Sin género",
+
+  "favoritesTitle": "Favoritos",
+  "noFavorites": "Sin favoritos",
+  "noFavoritesSubtitle": "Agrega Pokémon a tus favoritos desde la Pokédex.",
+
+  "comingSoon": "¡Muy pronto disponible!",
+  "comingSoonSubtitle": "Estamos trabajando para traerte esta sección. Vuelve más adelante para descubrir todas las novedades.",
+
+  "onboarding1Title": "Todos los Pokémon en un solo lugar",
+  "onboarding1Description": "Accede a una amplia lista de Pokémon de todas las generaciones creadas por Nintendo",
+  "onboarding1Button": "Continuar",
+  "onboarding2Title": "Mantén tu Pokédex actualizada",
+  "onboarding2Description": "Regístrate y guarda tu perfil, Pokémon favoritos, configuraciones y mucho más en la aplicación",
+  "onboarding2Button": "Empecemos"
 }

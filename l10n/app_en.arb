@@ -1,30 +1,93 @@
 {
   "@@locale": "en",
-  "appTitle": "Pokémon Favorites",
-  "@appTitle": { "description": "The app title" },
 
-  "pokemonListTitle": "Pokémon List",
-  "@pokemonListTitle": {},
+  "appTitle": "Pokédex",
+  "@appTitle": { "description": "App title" },
 
-  "favoritesTitle": "My Favorites",
-  "@favoritesTitle": {},
+  "navPokedex": "Pokédex",
+  "@navPokedex": {},
+  "navRegions": "Regions",
+  "@navRegions": {},
+  "navFavorites": "Favorites",
+  "@navFavorites": {},
+  "navProfile": "Profile",
+  "@navProfile": {},
 
-  "noFavoritesYet": "No favorites yet.\nStart adding some!",
-  "@noFavoritesYet": {},
+  "searchHint": "Search Pokémon...",
+  "@searchHint": {},
 
-  "pokemonType": "{type}",
-  "@pokemonType": {
+  "errorTitle": "Something went wrong...",
+  "@errorTitle": {},
+  "retry": "Retry",
+  "@retry": {},
+
+  "noPokemons": "No Pokémon found",
+  "@noPokemons": {},
+  "noPokemonsWithFilters": "No Pokémon matches the applied filters.",
+  "@noPokemonsWithFilters": {},
+  "noPokemonsEmpty": "The Pokédex is empty for now.",
+  "@noPokemonsEmpty": {},
+  "clearFilters": "Clear filters",
+  "@clearFilters": {},
+
+  "resultsFound": "Found {count} results",
+  "@resultsFound": {
     "placeholders": {
-      "type": { "type": "String" }
+      "count": { "type": "int" }
     }
   },
+  "clearFilter": "Clear filter",
+  "@clearFilter": {},
 
-  "statsLabel": "Stats",
-  "@statsLabel": {},
+  "filterSheetTitle": "Filter by your preferences",
+  "@filterSheetTitle": {},
+  "filterTypeLabel": "Type",
+  "@filterTypeLabel": {},
+  "apply": "Apply",
+  "@apply": {},
+  "cancel": "Cancel",
+  "@cancel": {},
 
-  "errorLoadingData": "Could not load data. Please try again.",
-  "@errorLoadingData": {},
+  "weaknesses": "Weaknesses",
+  "@weaknesses": {},
+  "noWeaknesses": "No known weaknesses",
+  "@noWeaknesses": {},
 
-  "retry": "Retry",
-  "@retry": {}
+  "weight": "Weight",
+  "@weight": {},
+  "height": "Height",
+  "@height": {},
+  "category": "Category",
+  "@category": {},
+  "ability": "Ability",
+  "@ability": {},
+  "gender": "Gender",
+  "@gender": {},
+  "genderless": "No gender",
+  "@genderless": {},
+
+  "favoritesTitle": "Favorites",
+  "@favoritesTitle": {},
+  "noFavorites": "No favorites",
+  "@noFavorites": {},
+  "noFavoritesSubtitle": "Add Pokémon to your favorites from the Pokédex.",
+  "@noFavoritesSubtitle": {},
+
+  "comingSoon": "Coming soon!",
+  "@comingSoon": {},
+  "comingSoonSubtitle": "We are working to bring you this section. Come back later to discover all the news.",
+  "@comingSoonSubtitle": {},
+
+  "onboarding1Title": "All Pokémon in one place",
+  "@onboarding1Title": {},
+  "onboarding1Description": "Access a wide list of Pokémon from all generations created by Nintendo",
+  "@onboarding1Description": {},
+  "onboarding1Button": "Continue",
+  "@onboarding1Button": {},
+  "onboarding2Title": "Keep your Pokédex up to date",
+  "@onboarding2Title": {},
+  "onboarding2Description": "Sign up and save your profile, favorite Pokémon, settings and much more in the app",
+  "@onboarding2Description": {},
+  "onboarding2Button": "Let's go",
+  "@onboarding2Button": {}
 }

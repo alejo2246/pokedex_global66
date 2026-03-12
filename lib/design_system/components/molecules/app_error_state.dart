@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/l10n/l10n.dart';
 
 import '../../tokens/app_colors.dart';
 import '../../tokens/app_spacing.dart';
@@ -9,7 +10,7 @@ class AppErrorState extends StatelessWidget {
   final String title;
   final String? subtitle;
   final String image;
-  final String retryLabel;
+  final String? retryLabel;
   final VoidCallback? onRetry;
 
   const AppErrorState({
@@ -17,7 +18,7 @@ class AppErrorState extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.image = 'magikarp_jump.png',
-    this.retryLabel = 'Reintentar',
+    this.retryLabel,
     this.onRetry,
   });
 
@@ -52,7 +53,7 @@ class AppErrorState extends StatelessWidget {
             ],
             if (onRetry != null) ...[
               const SizedBox(height: AppSpacing.md),
-              AppButton(text: retryLabel, onPressed: onRetry),
+              AppButton(text: retryLabel ?? context.l10n.retry, onPressed: onRetry),
             ],
           ],
         ),
