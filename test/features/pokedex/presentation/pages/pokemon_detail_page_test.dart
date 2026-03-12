@@ -10,6 +10,7 @@ import 'package:pokedex/features/pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/features/pokedex/domain/entities/pokemon_detail.dart';
 import 'package:pokedex/features/pokedex/presentation/pages/pokemon_detail_page.dart';
 import 'package:pokedex/features/pokedex/presentation/viewmodels/pokemon_detail_viewmodel.dart';
+import 'package:pokedex/l10n/app_localizations.dart';
 
 // ─── fake notifiers ──────────────────────────────────────────────────────────
 
@@ -70,8 +71,11 @@ Widget buildPage(AsyncValue<PokemonDetail> detailState) {
       ),
       favoritesViewModelProvider.overrideWith(() => FakeFavoritesViewModel()),
     ],
-    child: const MaterialApp(
-      home: PokemonDetailPage(pokemonId: '1', pokemon: tPokemon),
+    child: MaterialApp(
+      locale: const Locale('es'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const PokemonDetailPage(pokemonId: '1', pokemon: tPokemon),
     ),
   );
 }

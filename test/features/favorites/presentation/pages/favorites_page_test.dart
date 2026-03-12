@@ -9,6 +9,7 @@ import 'package:pokedex/features/favorites/domain/usecases/toggle_favorite_useca
 import 'package:pokedex/features/favorites/presentation/pages/favorites_page.dart';
 import 'package:pokedex/features/favorites/presentation/viewmodels/favorites_viewmodel.dart';
 import 'package:pokedex/features/pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/l10n/app_localizations.dart';
 
 class MockGetFavoritesUseCase extends Mock implements GetFavoritesUseCase {}
 
@@ -40,7 +41,12 @@ Widget buildPage(AsyncValue<FavoritesState> state) {
         () => FakeFavoritesViewModel(state),
       ),
     ],
-    child: const MaterialApp(home: FavoritesPage()),
+    child: MaterialApp(
+      locale: const Locale('es'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const FavoritesPage(),
+    ),
   );
 }
 

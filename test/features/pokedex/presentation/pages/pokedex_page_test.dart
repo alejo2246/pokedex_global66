@@ -10,6 +10,7 @@ import 'package:pokedex/features/pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/features/pokedex/domain/usecases/get_pokemon_list_usecase.dart';
 import 'package:pokedex/features/pokedex/presentation/pages/pokedex_page.dart';
 import 'package:pokedex/features/pokedex/presentation/viewmodels/pokedex_viewmodel.dart';
+import 'package:pokedex/l10n/app_localizations.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockGetPokemonListUseCase extends Mock implements GetPokemonListUseCase {}
@@ -50,7 +51,12 @@ Widget buildPage(AsyncValue<PokedexState> pokedexState) {
       ),
       favoritesViewModelProvider.overrideWith(() => FakeFavoritesViewModel()),
     ],
-    child: const MaterialApp(home: PokedexPage()),
+    child: MaterialApp(
+      locale: const Locale('es'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const PokedexPage(),
+    ),
   );
 }
 
